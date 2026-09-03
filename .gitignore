@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+*.orig
+
+# /sam3/ and /sam-3d-objects/ are Git submodules pinning the upstream model
+# sources; they must NOT be ignored here, or `git submodule` would refuse them.
+
+# Machine-local SceneMosaic deployment profile.
+/configs/runtime.local.json
+
+# Server runtime assets; never commit checkpoints, model caches, or material corpora.
+# The material corpus is ignored wholesale, except the Marble001 fixture that the
+# legacy fixed-material path (generate_room_mesh.py) hard-requires. Negation must
+# sit at this level (one pattern below /data/materials/*); a nested .gitignore in
+# the ignored parent cannot re-include a child that a containing pattern matched.
+/checkpoints/
+/vlm_agent/evolution/cache/open_clip/
+/data/materials/*
+!/data/materials/Marble001/
+/data/embeddings/
+
+# Default workspace from the public setup guide.
+/workspace/

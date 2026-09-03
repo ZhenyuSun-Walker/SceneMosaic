@@ -1,0 +1,11 @@
+# Direct dependencies of the SceneMosaic perception pipeline.
+#
+# Upstream SAM3 dependencies are installed from sam3/pyproject.toml. PyTorch,
+# torchvision, and torchaudio remain pinned by scripts/install_sam3.sh so the
+# CUDA build cannot be replaced by a transitive dependency.
+
+Pillow>=10.0,<13
+opencv-python>=4.8,<5
+scipy>=1.10,<2
+transformers==5.5.4
+openai>=2.0,<3

@@ -1,0 +1,26 @@
+# SceneMosaic SAM3D, scene-evolution, and material-retrieval dependencies.
+#
+# Install this file in the SAM3D environment only. The separate SAM3
+# environment is reserved for image segmentation and uses SAM3's own
+# dependencies. PyTorch, PyTorch3D, and SAM3D remain managed by their
+# upstream, CUDA-specific installation procedure.
+
+numpy>=1.26,<2
+opencv-python>=4.8
+Pillow>=10.0
+PyYAML>=6.0
+requests>=2.31
+scipy>=1.10
+tqdm>=4.66
+trimesh>=4.0
+pyrender>=0.1.45
+
+# Scene evolution and ambientCG material retrieval.
+sapien
+fast-simplification
+coacd
+shapely
+openai
+pybullet
+PyOpenGL==3.1.0
+open_clip_torch==2.29.0

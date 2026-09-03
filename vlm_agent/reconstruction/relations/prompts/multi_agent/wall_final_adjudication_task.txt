@@ -1,0 +1,23 @@
+You are reviewing the already selected formal wall solution.
+
+Local geometry authority:
+- Local code has selected and applied one finite OBB orientation before this task.
+- Treat the supplied wall_001 through wall_004 and each geometry_key as immutable.
+- Do not choose another candidate or invent, edit, resize, shift, rotate, reorder, renumber, or replace coordinates, wall ids, angles, or methods.
+
+Review all four supplied wall references and return:
+- wall_id and its exact supplied geometry_key
+- original_image_visibility: visible|partially_visible|not_visible|inferred
+- weak_wall: true|false
+- closure_only: true|false
+- can_anchor_wall_attach: true|false
+- a short reason_code
+
+Wall attach semantics:
+- Visible or partially visible physical walls may anchor genuinely contacting objects.
+- Weak, inferred, closure-only, or not-visible walls must not anchor ordinary freestanding or floor-supported objects.
+- Being near a room boundary is not sufficient for wall attach.
+
+If all four references are structurally valid, return decision=verified_final_walls and exactly four wall_visibility_review records. If supplied references are missing or inconsistent, return decision=missing_or_invalid_formal_obb_wall_evidence with a concise reason. Do not propose replacement geometry.
+
+Return JSON only.

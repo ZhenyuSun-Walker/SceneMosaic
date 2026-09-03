@@ -1,0 +1,19 @@
+{
+  "schema_version": "scenemosaic_runtime_profile",
+  "conda_envs": {
+    "perception": "sam3",
+    "sam3d": "scenemosaic"
+  },
+  "workspace_root": "../workspace",
+  "perception_attempts_root": "../workspace/perception_attempts",
+  "perception_model_dir": "../checkpoints/sam3",
+  "sam3d_checkpoint": "../checkpoints/sam3d/pipeline.yaml",
+  "dino_hub_cache": "../checkpoints/dinov2",
+  "perception_api_key_env": "OPENAI_API_KEY",
+  "perception_api_base_env": "OPENAI_BASE_URL",
+  "relation_api_key_env": "OPENAI_API_KEY",
+  "relation_api_base_env": "OPENAI_BASE_URL",
+  "scenemosaic_api_key_env": "OPENAI_API_KEY",
+  "scenemosaic_api_base_env": "OPENAI_BASE_URL",
+  "vlm_model": "gpt-5.5"
+}
