@@ -4,6 +4,9 @@
 # torchvision, and torchaudio remain pinned by scripts/install_sam3.sh so the
 # CUDA build cannot be replaced by a transitive dependency.
 
+# Keep the NumPy range required by the pinned SAM3 submodule when resolving
+# OpenCV and SciPy, whose newer releases can require NumPy 2.
+numpy>=1.26,<2
 Pillow>=10.0,<13
 opencv-python>=4.8,<5
 scipy>=1.10,<2

@@ -87,10 +87,8 @@ else
 fi
 
 run_in_env \
-  python -m pip install --editable "$SAM3_DIR"
-
-run_in_env \
   python -m pip install \
+  --editable "$SAM3_DIR" \
   --requirement "$REPO_ROOT/requirements-perception.txt" \
   --index-url "$SCENEMOSAIC_PIP_INDEX"
 
