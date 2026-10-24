@@ -12,6 +12,10 @@ SAM3_DIR="$REPO_ROOT/sam3"
 export SCENEMOSAIC_PIP_INDEX="${SCENEMOSAIC_PIP_INDEX:-https://pypi.org/simple}"
 export SCENEMOSAIC_TORCH_INDEX="${SCENEMOSAIC_TORCH_INDEX:-https://download.pytorch.org/whl/cu126}"
 
+# Apply the selected index to editable installs and their build dependencies.
+# The explicit PyTorch --index-url below still overrides this default.
+export PIP_INDEX_URL="$SCENEMOSAIC_PIP_INDEX"
+
 ENV_NAME="$(printenv SAM3_ENV_NAME || true)"
 ENV_PREFIX="$(printenv SAM3_ENV_PREFIX || true)"
 if [[ -z "$ENV_NAME" && -z "$ENV_PREFIX" ]]; then

@@ -12,6 +12,10 @@ export SCENEMOSAIC_PIP_INDEX="${SCENEMOSAIC_PIP_INDEX:-https://pypi.org/simple}"
 export SCENEMOSAIC_PIP_EXTRA_INDEX="${SCENEMOSAIC_PIP_EXTRA_INDEX:-https://pypi.ngc.nvidia.com https://download.pytorch.org/whl/cu121}"
 export SCENEMOSAIC_KAOLIN_FIND_LINKS="${SCENEMOSAIC_KAOLIN_FIND_LINKS:-https://nvidia-kaolin.s3.us-east-2.amazonaws.com/torch-2.5.1_cu121.html}"
 
+# Apply the selected index to every pip invocation, including subprocesses
+# that install isolated build dependencies for editable packages.
+export PIP_INDEX_URL="$SCENEMOSAIC_PIP_INDEX"
+
 ENV_NAME="$(printenv SCENEMOSAIC_ENV_NAME || true)"
 ENV_PREFIX="$(printenv SCENEMOSAIC_ENV_PREFIX || true)"
 if [[ -z "$ENV_NAME" && -z "$ENV_PREFIX" ]]; then
