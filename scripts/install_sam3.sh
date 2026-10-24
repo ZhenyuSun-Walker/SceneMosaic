@@ -16,6 +16,11 @@ export SCENEMOSAIC_TORCH_INDEX="${SCENEMOSAIC_TORCH_INDEX:-https://download.pyto
 # The explicit PyTorch --index-url below still overrides this default.
 export PIP_INDEX_URL="$SCENEMOSAIC_PIP_INDEX"
 
+# nvidia-pyindex (installed by SAM 3D Objects) edits the shared user pip.conf.
+# SAM3 uses only the PyPI index and the explicit CUDA 12.6 PyTorch index above.
+export PIP_CONFIG_FILE=/dev/null
+unset PIP_EXTRA_INDEX_URL
+
 ENV_NAME="$(printenv SAM3_ENV_NAME || true)"
 ENV_PREFIX="$(printenv SAM3_ENV_PREFIX || true)"
 if [[ -z "$ENV_NAME" && -z "$ENV_PREFIX" ]]; then

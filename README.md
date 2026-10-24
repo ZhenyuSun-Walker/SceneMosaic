@@ -84,6 +84,11 @@ SCENEMOSAIC_PIP_INDEX=https://mirror.example.com/simple bash scripts/install_sam
 `SCENEMOSAIC_TORCH_INDEX` (`install_sam3.sh`), `SCENEMOSAIC_PIP_EXTRA_INDEX`, and
 `SCENEMOSAIC_KAOLIN_FIND_LINKS` (`install_scenemosaic.sh`) work the same way.
 
+The SAM3 installer ignores shared pip configuration files and inherited
+`PIP_EXTRA_INDEX_URL` so that `nvidia-pyindex` installed by SAM 3D Objects cannot
+add the NVIDIA index to SAM3 downloads. Use `SCENEMOSAIC_PIP_INDEX` and
+`SCENEMOSAIC_TORCH_INDEX` to select its package sources.
+
 ## 4. Download model checkpoints
 
 Authenticate once, after both gated repositories have granted access:
