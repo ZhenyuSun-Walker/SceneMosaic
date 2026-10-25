@@ -1783,11 +1783,11 @@ def fuse_passes(
 
 
 def temperature_request_kwargs(model: str) -> dict[str, int]:
-    """Use provider defaults for the repository-wide GPT-5.5 route."""
+    """Use provider defaults for the supported VLM routes."""
 
     canonical = str(model or "").lower().rsplit("/", 1)[-1]
-    if canonical != "gpt-6.1-sol":
-        raise ValueError("SceneMosaic perception requires model gpt-5.5")
+    if canonical not in {"gpt-5.5", "gpt-6.1-sol"}:
+        raise ValueError("SceneMosaic perception requires gpt-5.5 or gpt-6.1-sol")
     return {}
 
 

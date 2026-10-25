@@ -1135,9 +1135,11 @@ class RelationStageAdapter:
             raise RelationStageError("benchmark_id is unsafe")
         if not ENV_NAME_RE.fullmatch(api_key_env):
             raise RelationStageError("API key environment variable name is invalid")
-        if not isinstance(model, str) or model.strip().lower() != "gpt-5.5":
-            raise RelationStageError("SceneMosaic Relation requires model gpt-5.5")
-        model = "gpt-6.1-sol"
+        if not isinstance(model, str) or model.strip().lower() not in {
+            "gpt-5.5", "gpt-6.1-sol"
+        }:
+            raise RelationStageError("SceneMosaic Relation requires gpt-5.5 or gpt-6.1-sol")
+        model = model.strip().lower()
         source_env = os.environ if environ is None else environ
         secret = source_env.get(api_key_env)
         if not secret:
