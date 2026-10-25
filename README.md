@@ -153,6 +153,10 @@ conda run -n scenemosaic python scripts/download_ambientcg.py \
 conda run -n scenemosaic python scripts/compute_ambientcg_embeddings.py
 ```
 
+The embedding script downloads its CLIP weights through `https://hf-mirror.com`
+by default. Set `HF_ENDPOINT=https://huggingface.co` (or another endpoint) before
+running it to override the mirror.
+
 ambientCG encodes resolution and format in every texture filename
 (`<asset>_2K-PNG_Color.png`), so the whole pipeline must agree on one pair.
 `2K`/`PNG` is the default everywhere; to use another variant, set it once so the
