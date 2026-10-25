@@ -1786,7 +1786,7 @@ def temperature_request_kwargs(model: str) -> dict[str, int]:
     """Use provider defaults for the repository-wide GPT-5.5 route."""
 
     canonical = str(model or "").lower().rsplit("/", 1)[-1]
-    if canonical != "gpt-5.5":
+    if canonical != "gpt-6.1-sol":
         raise ValueError("SceneMosaic perception requires model gpt-5.5")
     return {}
 
