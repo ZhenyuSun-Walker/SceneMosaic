@@ -18,6 +18,8 @@ __pycache__/
 /data/materials/*
 !/data/materials/Marble001/
 /data/embeddings/
+data
 
 # Default workspace from the public setup guide.
 /workspace/
+checkpoints
